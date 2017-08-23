@@ -1,0 +1,26 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import supersimplestock.PreferredStock;
+import supersimplestock.Stock;
+
+public class StockTestCases {
+
+	
+	@Test 
+	public void testDividend() 
+	{
+		Stock stock = new Stock("commonDividend", 5,  100);
+		
+	}
+
+	@Test
+	public void testPreferredDividend() 
+	{
+		Stock stock = new PreferredStock("test", 8, 0.02f, 100);
+	}
+
+}

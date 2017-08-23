@@ -1,0 +1,32 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import supersimplestock.PreferredStock;
+import supersimplestock.Stock;
+
+public class StockTestCases {
+
+	
+	@Test 
+	public void testDividend() 
+	{
+		Stock stock = new Stock("commonDividend", 5,  100);
+		
+		float dividend=stock.getDividendYeld(50);
+		float delta=dividend-0.1f;
+		assertTrue(Math.abs(delta)<0.0001f);
+	}
+
+	@Test
+	public void testPreferredDividend() 
+	{
+		Stock stock = new PreferredStock("preferredDividend", 5, 0.02f, 100);
+		float dividend=stock.getDividendYeld(50);
+		float delta=dividend-0.04f;
+		assertTrue(Math.abs(delta)<0.0001f);
+	}
+
+}

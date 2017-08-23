@@ -1,0 +1,60 @@
+package tests;
+
+import static org.junit.Assert.*;
+import  java.time.Instant;
+
+import org.junit.Test;
+
+import supersimplestock.NoStockPriceException;
+import supersimplestock.PreferredStock;
+import supersimplestock.Stock;
+import supersimplestock.Trade.TradeOperation;
+
+public class StockTestCases {
+
+	
+	@Test 
+	public void testDividend() 
+	{
+		Stock stock = new Stock("commonDividend", 5,  100);		
+		float dividend=stock.getDividendYeld(50);
+		float delta=dividend-0.1f;
+		assertTrue(Math.abs(delta)<0.0001f);
+	}
+
+	@Test
+	public void testPreferredDividend() 
+	{
+		Stock stock = new PreferredStock("preferredDividend", 5, 0.02f, 100);
+		float dividend=stock.getDividendYeld(50);
+		float delta=dividend-0.04f;
+		assertTrue(Math.abs(delta)<0.0001f);
+	}
+	
+	@Test
+	public void testPERatio() 
+	{
+		Stock stock = new PreferredStock("PERatio", 5, 0.02f, 100);
+		float ratio=stock.getPERatio(20);
+		float delta=ratio-4;
+		assertTrue(Math.abs(delta)<0.0001f);
+	}
+	
+	
+	@Test
+	public void testPrice() throws NoStockPriceException 
+	{
+		Stock stock = new Stock("testPrice", 5,  100);
+		Instant now=Instant.now();
+		
+		stock.recordTrade(now, 5, TradeOperation.buy, 10);
+		stock.recordTrade(now, 30, TradeOperation.buy, 60);
+
+		int price=stock.getStockPrice(now);
+		assertTrue(price==53);
+		
+		
+	}
+	
+
+}

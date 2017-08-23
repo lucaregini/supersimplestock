@@ -1,0 +1,30 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import supersimplestock.PreferredStock;
+import supersimplestock.Stock;
+
+public class StockTestCases {
+
+	
+	@Test 
+	public void testDividend() 
+	{
+		Stock stock = new Stock("commonDividend", 5,  100);
+		
+		float dividend=stock.getDividendYeld(50);
+		assertEquals(dividend, 0.1f);
+	}
+
+	@Test
+	public void testPreferredDividend() 
+	{
+		Stock stock = new PreferredStock("preferredDividend", 5, 0.02f, 100);
+		float dividend=stock.getDividendYeld(50);
+		assertEquals()
+	}
+
+}

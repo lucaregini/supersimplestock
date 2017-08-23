@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="supersimplestock.Stock"/>
+<fullyQualifiedTypeName name="supersimplestock.PreferredStock"/>
+<fullyQualifiedTypeName name="supersimplestock.StockIndexes"/>
+<fullyQualifiedTypeName name="java.time.Instant"/>
+<fullyQualifiedTypeName name="supersimplestock.Trade.TradeOperation"/>
+</qualifiedTypeNameHistroy>
